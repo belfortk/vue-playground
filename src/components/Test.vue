@@ -16,7 +16,9 @@
     <h3>Editing for {{ fullName }} </h3>
     <label> First Name:  </label><input type="text" v-model="user.firstName">
     <label> Last Name:  </label><input type="text" v-model="user.lastName">
-
+    <hr>
+    <h2> Message:</h2>
+    <h3> {{ message }} </h3>
 
   </div>
 </template>
@@ -24,6 +26,12 @@
 <script>
 export default {
   name: 'test',
+  props: {
+    message: {
+      default: 'test message',
+      type: String
+    }
+  },
   data () {
     return {
       title: 'Hello World',
@@ -66,5 +74,8 @@ export default {
 <style scoped>
   ul {
   list-style-type: none;
+}
+input{
+  margin-bottom: 1rem;
 }
 </style>
