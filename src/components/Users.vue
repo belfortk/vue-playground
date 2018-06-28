@@ -25,29 +25,24 @@
 
 
 <script>
+import axios from 'axios';
 export default {
   name: 'users',
   data() {
     return {
       newUser: {},
-      users: [
-        {
-          name: 'John Doe',
-          email: 'jdoe@gmail.com',
-          contacted: false
-        },
-        {
-          name: 'Steve Smith',
-          email: 'stevie@gmail.com',
-          contacted: true
-        },
-        {
-          name: 'Bob Johnson',
-          email: 'bhj123@gmail.com',
-          contacted: false
-        }
-      ],
+      users: [],
     };
+  },
+  created: function(){
+    // this.$http.get('https://jsonplaceholder.typicode.com/users')
+    // .then(res => {
+    //   this.users = res.data
+    // });
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(res => {
+      this.users = res.data
+    });
   },
   methods: {
     addUser:  function(e){
